@@ -38,7 +38,7 @@ var majorityElement = function(nums) {
     }
     let majority;
     let max = 0;
-    for(const major in freq) {   // O(n)
+    for(const major in freq) {   // O(k) , k<=n
         if(freq[major] > max){
             majority = Number(major);
             max = freq[major];
