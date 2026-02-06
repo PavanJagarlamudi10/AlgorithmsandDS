@@ -25,9 +25,10 @@ The input is generated such that a majority element will exist in the array.
  * @param {number[]} nums
  * @return {number}
  */
+//Space - O(1)
 var majorityElement = function(nums) {
     const freq = {};
-    for(i=0; i<nums.length; i++) {
+    for(i=0; i<nums.length; i++) {  // O(n)
         const k = nums[i];
         if(freq[k]) {
             freq[k] = freq[k] + 1;
@@ -37,7 +38,7 @@ var majorityElement = function(nums) {
     }
     let majority;
     let max = 0;
-    for(const major in freq) {
+    for(const major in freq) {   // O(n)
         if(freq[major] > max){
             majority = Number(major);
             max = freq[major];
