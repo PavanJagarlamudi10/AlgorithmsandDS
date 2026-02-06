@@ -44,5 +44,5 @@ var majorityElement = function(nums) {
             max = freq[major];
         }
     }
-    return majority;
+    return max > nums.length/2 ? majority : null;
 };
