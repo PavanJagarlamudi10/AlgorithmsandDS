@@ -8,17 +8,15 @@ Return the merged string.
  * @param {string} word2
  * @return {string}
  */
- T - O(n), S - O(n)
+ T - O(n+m) or O(n) n>m, S - O(n+m) or O(n) n>m
 var mergeAlternately = function (word1, word2) {
-    const arr1 = word1.split('');
-    const arr2 = word2.split('');
     let merged = '';
     for (i = 0; i < word1.length || i < word2.length; i++) {
-        if (arr1[i]) {
-            merged += arr1[i]
+        if (word1[i]) {
+            merged += word1[i]
         }
-        if (arr2[i]) {
-            merged += arr2[i]
+        if (word2[i]) {
+            merged += word2[i]
         }
     }
     return merged;
