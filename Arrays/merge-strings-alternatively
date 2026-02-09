@@ -11,7 +11,7 @@ Return the merged string.
  T - O(n+m) or O(n) n>m, S - O(n+m) or O(n) n>m
 var mergeAlternately = function (word1, word2) {
     let merged = '';
-    for (i = 0; i < word1.length || i < word2.length; i++) {
+    for (let i = 0; i < word1.length || i < word2.length; i++) {
         if (word1[i]) {
             merged += word1[i]
         }
