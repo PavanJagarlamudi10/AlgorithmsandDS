@@ -28,7 +28,7 @@ The input is generated such that a majority element will exist in the array.
 //Space - O(n)
 var majorityElement = function(nums) {
     const freq = {};
-    for(i=0; i<nums.length; i++) {  // O(n)
+    for(let i=0; i<nums.length; i++) {  // O(n)
         const k = nums[i];
         if(freq[k]) {
             freq[k] = freq[k] + 1;
