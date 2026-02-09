@@ -39,7 +39,7 @@ Explanation: The groups are "a" and "bbbbbbbbbbbb". This compresses to "ab12".
 var compress = function (chars) {
     let write = 0;
     let count = 1;
-    for (i = 1; i <= chars.length; i++) {
+    for (let i = 1; i <= chars.length; i++) {
         if (chars[i] === chars[i - 1]) {
             count++;
             continue;
