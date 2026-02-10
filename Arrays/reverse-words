@@ -6,6 +6,7 @@ Return a string of the words in reverse order concatenated by a single space.
 
 Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
 
+//Solution 1
 T- O(n), S - O(n)
 var reverseWords = function (s) {
     const words = s.trim().split(/\s+/);
@@ -19,3 +20,24 @@ var reverseWords = function (s) {
     return words.join(" ")
 
 };
+
+// Solution 2
+T - O(n), S - O(n)
+var reverseWords = function (s) {
+    const arr = [];
+    let j = s.length;
+    let i = j - 1;
+    while (i >= 0) {
+        while (i >= 0 && s[i] === ' ')
+            i--;
+
+        if (i < 0) break;
+        j = i + 1;
+        while (i >= 0 && s[i] !== ' ')
+            i--;
+        const substr = s.slice(i + 1, j);
+        arr.push(substr);
+    }
+    return arr.join(' ');
+}
+
