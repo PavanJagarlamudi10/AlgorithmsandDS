@@ -1,0 +1,22 @@
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operation.
+
+// T - O(n), S - O(n)
+var productExceptSelf = function (nums) {
+    const result = [];
+    const size = nums.length;
+    let leftProduct = 1;
+    for (let i = 0; i < size; i++) {
+        result[i] = leftProduct;
+        leftProduct *= nums[i];
+    }
+    let rightProduct = 1;
+    for (let i = size-2; i >= 0; i--) {
+        rightProduct *= nums[i+1];
+        result[i] = rightProduct * result[i];
+    }
+    return result;
+};
