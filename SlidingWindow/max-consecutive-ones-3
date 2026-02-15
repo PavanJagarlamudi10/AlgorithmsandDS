@@ -1,0 +1,24 @@
+Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+
+// T - O(n) , S - O(1)
+var longestOnes = function (nums, k) {
+    let zeros = 0;
+    let max = 0;
+    let left = 0;
+
+    for (let right = 0; right < nums.length; right++) {
+        if (nums[right] === 0) {
+            zeros++;
+        }
+        while (zeros > k) {
+            if (nums[left] === 0) {
+                zeros--;
+            }
+            left++;
+        }
+        if (right - left + 1 > max) {
+            max = right - left + 1;
+        }
+    }
+    return max;
+};
