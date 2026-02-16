@@ -1,0 +1,60 @@
+Given a binary array nums, you should delete one element from it.
+
+Return the size of the longest non-empty subarray containing only 1's in the resulting array. Return 0 if there is no such subarray.
+
+// T- O(n), S - O(1)
+var longestSubarray = function(nums) {
+    let max = 0;
+    let left = 0;
+    let zeros = 0;
+    for(let right = 0; right < nums.length; right++) {
+        if(nums[right] === 0){
+            zeros++;
+        }
+        while(zeros > 1){
+            if(nums[left] === 0){
+                zeros--;
+            }
+            left++;
+        }
+        const currentSize = right - left + 1;
+        if(currentSize > max){
+            max = currentSize;
+        }
+    }
+    return max - 1;
+};
+
+/******** Variation ********
+  Given a binary array nums and an integer k,
+return the length of the longest subarray containing only 1’s after deleting exactly k elements.
+**********************  /
+var longestSubarray = function(nums) {
+    // Guard 
+    if(k >= nums.length) {
+      return 0; 
+    }
+    let max = 0;
+    let left = 0;
+    let zeros = 0;
+    for(let right = 0; right < nums.length; right++) {
+        if(nums[right] === 0){
+            zeros++;
+        }
+        while(zeros > k){  // change constant delete of 1 element to k
+            if(nums[left] === 0){
+                zeros--;
+            }
+            left++;
+        }
+        const currentSize = right - left + 1;
+        if(currentSize > max){
+            max = currentSize;
+        }
+    }
+    return max - k; // return constant 1 element froz size to k
+};
+
+
+
+
