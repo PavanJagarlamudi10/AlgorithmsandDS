@@ -1,0 +1,19 @@
+Given an array of integers arr, return true if the number of occurrences of each value in the array 
+  is unique or false otherwise.
+
+// T - O(n), S -O(n)
+var uniqueOccurrences = function (arr) {
+    const counts = new Map();
+    for (const num of arr){
+        counts.set(num, (counts.get(num) || 0) + 1);
+    }
+
+    const set = new Set();
+    for(const count of counts.values()){
+        if(set.has(count)) {
+            return false;
+        }
+        set.add(count);
+    }
+    return true;
+};
