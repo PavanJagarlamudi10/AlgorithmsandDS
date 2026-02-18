@@ -1,0 +1,23 @@
+***** Double Hashing to avoid collisions while comparing keys ********
+  
+  const B1 = 101n, M1 = 1_000_000_007n;
+  const B2 = 103n, M2 = 1_000_000_009n;
+    let h1 = 0n, h2 = 0n;
+      h1 = (h1 * B1 + val) % M1;
+      h2 = (h2 * B2 + val) % M2;
+  const key = `${h1}-${h2}`;
+
+for single hash ( MOD is 10^9)
+ 10^9  + 7 slots, but matching of key can occur at 32000 (sq root of 10^9) is 50%.
+so that is 32000^2 /2 = 500 million records  - > likely to see a duplicate if 1 billion records are there.
+
+for double hash (danger zone shifts massively) MOD is 10^18
+ 10^18 increases everything significantly
+
+P = N^2/(2*MOD) , P is error rate or paradox of collisions.
+
+The Comparison (5% Error Rate)
+Hashing Type	  Number of Slots (MOD)	  Max Items (N) for 5% Error
+------------    ---------------------    --------------------------
+Single Hash	        10^9                     ~10,000 items
+Double Hash	        10^18                   ~316,227,766 items
